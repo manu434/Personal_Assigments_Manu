@@ -1,3 +1,5 @@
+---personal assignemnt_1-----
+
 create database studentmanagement
 use studentmanagement
 
