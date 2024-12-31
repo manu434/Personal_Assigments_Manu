@@ -1,4 +1,4 @@
----personal assignemnt_1-----
+---personal assignment_1---
 
 create database studentmanagement
 use studentmanagement
@@ -61,18 +61,58 @@ select students.studentid,students.firstname,courses.coursename from students le
 select students.studentid,students.firstname,courses.coursename from students right join courses on students.studentid=courses.studentid
 
 
+---personal assignment_2---
+---not-null--constraints---
 
+drop table if exists employess
+create table employess(empid int not null,firstname varchar(20) not null,lastname varchar(20),hiredate date not null)
+insert into employess values(101,'manu','k','06/19/1995')
+insert into employess values(null,'manu','k','06/19/1995')
+
+select * from employess
  
+ ---default constraints---
+drop table if exists products
+create table products(productid int primary key,productname varchar(20) not null,price decimal(10,2) default 0.00,createdate datetime default current_timestamp)
+insert into products  values(100,'orange',default,default)
+select * from products
+sp_help products
 
+alter table products drop constraint DF__products__price__5DCAEF64
+sp_help products
 
+ALTER TABLE products
+ADD CONSTRAINT priceconstraint DEFAULT 10.00 FOR price;
 
+insert into products  values(103,'orage',default,default)
+select * from products
 
+---check constraints---
+drop table if exists orders
+create table orders(orderid int primary key,quantity int check(quantity>0),orderdate date)
+insert into orders values(100,0,'05/14/1998')
+insert into orders values(101,4,'09/11/1998')
 
+select * from orders
+sp_help orders
+alter table orders drop constraint check_order
 
+ALTER TABLE orders
+ADD CONSTRAINT check_order CHECK (quantity>=5)
 
+INSERT INTO Orders (OrderID, Quantity, OrderDate) VALUES (5, 5, '2024-01-01');
+INSERT INTO Orders (OrderID, Quantity, OrderDate) VALUES (6, 10, '2023-12-30');
 
+sp_help orders
 
+---unique constraints---
+drop table if exists users
+create table users(userid int primary key,username varchar(20) unique,email varchar(20) unique)
+insert into users values(101,'manu','manukshibu@gmail.com')
+insert into users values(102,'mu','manukshiu@gmail.com')
+insert into users values(103,'anu','manshibu@gmail.com')
 
+select * from users
 
 
 
