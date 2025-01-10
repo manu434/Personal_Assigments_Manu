@@ -123,3 +123,45 @@ public class Personal{
 	}
 }
 
+//Assignment 7: Rectangle/perimeter/Area
+//Write a program to display the above with equations 
+
+package assignments;
+public class Assignment{
+       public static void main(String[] args){
+               int l=10;
+               int w=12;
+              
+       System.out.println("Length: " + l);
+       System.out.println("width: " + w);
+       
+       int area = l*w;
+       int perimeter = 2*(l+w);
+       System.out.println("Area: " + area);
+       System.out.println("Perimeter: " + perimeter);
+      }
+}
+
+//Assignment 8: Swap Two Numbers
+//Write a program to swap two numbers without using a third variable. Use println to show the values before and after swapping.
+
+package assignments;
+public class Assignment{
+public static void main(String[] agrs){
+               
+                  int a=10;
+                  int b=20;
+             System.out.println("Before swapping: ");
+            System.out.println("a: " + a);
+            System.out.println("b: " + b);
+//do calculation for swapping
+
+           a=a+b;
+           b=a-b;
+           a=a-b;
+        System.out.println("After swapping: ");
+       System.out.println("a: " + a);
+      System.out.println("b: " + b);
+  }
+}
+    
