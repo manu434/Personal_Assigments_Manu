@@ -1,0 +1,53 @@
+--Basic Query Writing---
+
+--1) Write a query to fetch all columns from a table named Employees.
+Select * from employees
+--2) Retrieve distinct job titles from the Jobs table.
+select disinct title from jobs
+--3) Write a query to fetch all rows where the Salary is greater than 50,000 from the Salaries table
+select * from salaries  where salary>50000
+--4) Write a query to display the top 5 highest-paid employees from the Employees table.
+select top 5 * from employees order by salary desc
+--5) Retrieve the count of employees in the Departments table.
+select count(employes) as countno from department
+
+
+--Filtering and Sorting
+--1) Write a query to fetch employee details whose names start with 'A' from the Employees table.
+select * from employee where name like 'a%'
+--2) Write a query to retrieve all records from the Orders table where OrderDate is between '2023-01-01' and '2023-12-31'.
+select * from order where orderdate between '2023-01-01' and '2023-12-31'
+--3) Fetch all orders where the Quantity is either 10, 20, or 30 using the IN clause.
+select * from orders where quantity in (10,20,30)
+--4) Write a query to sort the Products table by Price in descending order.
+select * from products  order by price desc 
+
+--Aggregate Functions
+--1) Write a query to calculate the total sales in the Sales table.
+select sum(total) as totalsum from sales 
+--2) Write a query to find the average salary of employees in the Salaries table.
+select avg(salary) as avgsalary from salariestable
+--3) Write a query to find the maximum and minimum prices in the Products table.
+select max(price),min(price) as maxandmin from products
+--4) Write a query to count the number of customers in the Customers table.
+select count(custmers) as totcustomers from customers
+--5) Retrieve the department name and the total number of employees in each department from the Departments and Employees tables.
+
+--joins
+--1) Write a query to join the Employees table with the Departments table on DepartmentID and retrieve employee names along with their department names.
+select emp.epname,department.deptname from emp inner join department on emp.depid=department.depid
+--2) Write a query to group employees by department and find the total salary in each department.
+select department,sum(salary) as totalsalary from employees group by department  
+--3) Retrieve all departments where the total number of employees is greater than 10.
+select dept count(dept),as total from employees group by dept having count(dept)>10
+--4) Write a query to find customers who placed more than 5 orders.
+select order,count(cid) as custno from customertable group by order having count(cid)>5
+
+
+---dml
+--1) Write a query to insert a new record into the Employees table.
+insert into tablename values()
+--2) Update the Salary column by increasing all employees' salaries by 10% in the Employees table.
+update employess set salary = salary * 1.10%
+--3) Delete all orders where OrderDate is older than '2020-01-01' from the Orders table.
+delete from orders where orderdate<'2020-01-01'
