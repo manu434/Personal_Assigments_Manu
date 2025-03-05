@@ -34,7 +34,7 @@ public class Assign_6 {
 		FileInputStream fi = new FileInputStream(f);
 		XSSFWorkbook wb = new XSSFWorkbook(fi);
 		XSSFSheet sh = wb.getSheet("Sheet1");
-		System.out.println(sh.getLastRowNum());
+		System.out.println("No of Rows in Excel sheet: "+sh.getLastRowNum());
 
 		for (int i = 1; i <= sh.getLastRowNum(); i++) {
 			String username = sh.getRow(i).getCell(0).getStringCellValue();
